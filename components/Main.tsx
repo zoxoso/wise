@@ -20,7 +20,6 @@ function Main() {
     <h2 className="text-4xl tracking-tight font-bold text-primary-800">Jí Lóhng</h2>
   </div>
   <div className="flex flex-col md:flex-row">
-    {/* can help image */}
     <div className="mr-0 md:mr-8 mb-6 md:mb-0">
    <div className="p-1 m-1 min-w-xs w-full mx-auto max-w-sm outline outline-2 outline-offset-0 outline-slate-300 shadow-xl shadow-slate-500/50 dark:shadow-cyan-500/50 dark:outline-cyan-300 rounded-xl">
   <div className="h-1/2 p-1 place-items-center block text-center sm:flex sm:justify-between">
