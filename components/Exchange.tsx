@@ -218,7 +218,7 @@ function Exchange() {
         
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">Currency Exchange</h2>
-          <p className="text-white/80 text-lg">Real-time currency conversion with glassmorphism</p>
+          <p className="text-white/80 text-lg"></p>
         </div>
 
         <div className="backdrop-blur-md bg-white/20 border border-white/30 p-8 rounded-2xl shadow-xl">

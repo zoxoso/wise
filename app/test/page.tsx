@@ -1,10 +1,13 @@
 import React from 'react'
-import Run from '@/components/Run'
+import Wes from '@/components/Wes'
 
-export default function page() {
+
+function page() {
   return (
     <div>
-      <Run />
+      <Wes />
     </div>
   )
 }
+
+export default page

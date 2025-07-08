@@ -23,7 +23,15 @@ function Main() {
     <div className="mr-0 md:mr-8 mb-6 md:mb-0">
    <div className="p-1 m-1 min-w-xs w-full mx-auto max-w-sm outline outline-2 outline-offset-0 outline-slate-300 shadow-xl shadow-slate-500/50 dark:shadow-cyan-500/50 dark:outline-cyan-300 rounded-xl">
   <div className="h-1/2 p-1 place-items-center block text-center sm:flex sm:justify-between">
-    <img className="rounded-full sm:rounded-xl size-20 sm:size-[10rem] object-cover" src="https://images.unsplash.com/photo-1466112928291-0903b80a9466?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxwcm9maWxlfGVufDB8MHx8fDE3NTA1MDA4MDB8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="profile" />
+   <Image 
+   src="/profile.jpg"
+   alt="profile"
+   width={100}
+   height={100}
+   className='w-full opacity-60 hover:opacity-90 shadow-2xl shadow-amber-200 '
+   />
+  
+
     <div className="m-2 py-2">
         <h2>Last Update - {getTimeMinusThirtyMinutes()}</h2>
         <h4></h4>
@@ -120,7 +128,8 @@ function Main() {
 
    
     </div>
-    {/* end can help image */}
+
+
     <div className="flex-1 flex flex-col sm:flex-row flex-wrap -mb-4 -mx-2">
       <div className="w-full sm:w-1/2 mb-4 px-2 ">
         <div className="h-full py-4 px-6 border border-green-500 border-t-0 border-l-0 rounded-br-xl">

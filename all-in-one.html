@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ติดตามสถานะโอนเงิน</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .mtcn-input {
+            width: 3rem; /* Adjust as needed */
+            height: 3rem; /* Adjust as needed */
+            text-align: center;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-3xl font-bold text-center mb-6">ติดตามสถานะ โอนเงิน (MTCN)</h1>
+
+        <div class="flex border-b mb-6">
+            <button id="tab1-btn" class="flex-1 py-3 text-lg font-medium text-center text-gray-700 border-b-2 border-transparent hover:border-blue-500 focus:outline-none active-tab">ฉันเป็นผู้รับ</button>
+            <button id="tab2-btn" class="flex-1 py-3 text-lg font-medium text-center text-gray-700 border-b-2 border-transparent hover:border-blue-500 focus:outline-none">ฉันเป็นผู้ส่ง</button>
+        </div>
+
+        <div id="tab1-content" class="tab-content">
+            <h3 class="text-2xl text-center mb-10">หากต้องการติดตามการโอนเงิน ให้กรอกหมายเลขติดตาม (MTCN) 10 หลักด้านล่าง</h3>
+            <div class="flex justify-center gap-3 mb-14 font-extrabold text-xl p-4">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <span class="text-3xl text-gray-400">-</span>
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <span class="text-3xl text-gray-400">-</span>
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+                <input type="text" maxlength="1" class="mtcn-input border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400" value="X">
+            </div>
+            <button id="track-mtcn-btn" class="w-full bg-yellow-400 text-black font-bold py-3 px-4 rounded-full hover:bg-yellow-500 focus:outline-none focus:shadow-outline mb-3">ติดตาม</button>
+            <button class="w-full bg-white border border-blue-500 text-blue-500 font-bold py-3 px-4 rounded-full hover:bg-blue-50 hover:text-blue-600 focus:outline-none focus:shadow-outline">ติดตามโดยไม่ใช่ MTCN</button>
+        </div>
+
+        <div id="tab2-content" class="tab-content hidden">
+            <div class="mb-4">
+                <label for="sender-name" class="block text-gray-700 text-sm font-bold mb-2">ชื่อผู้ส่ง:</label>
+                <input type="text" id="sender-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="sender-surname" class="block text-gray-700 text-sm font-bold mb-2">นามสกุลผู้ส่ง:</label>
+                <input type="text" id="sender-surname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="receiver-name" class="block text-gray-700 text-sm font-bold mb-2">ชื่อผู้รับ:</label>
+                <input type="text" id="receiver-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="receiver-surname" class="block text-gray-700 text-sm font-bold mb-2">นามสกุลผู้รับ:</label>
+                <input type="text" id="receiver-surname" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-6">
+                <label for="amount" class="block text-gray-700 text-sm font-bold mb-2">จำนวนเงิน:</label>
+                <input type="number" id="amount" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <button class="w-full bg-yellow-400 text-black font-bold py-3 px-4 rounded-md hover:bg-yellow-500 focus:outline-none focus:shadow-outline mb-3">ติดตาม</button>
+            <button class="w-full bg-white border border-blue-500 text-blue-500 font-bold py-3 px-4 rounded-md hover:bg-blue-50 hover:text-blue-600 focus:outline-none focus:shadow-outline">ติดตามโดยไม่ใช่ MTCN</button>
+        </div>
+
+        <div id="loading-spinner" class="hidden flex flex-col items-center justify-center mt-8">
+            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+            <p class="text-gray-700">กำลังโหลด...</p>
+        </div>
+
+        <div id="status-display" class="hidden mt-8">
+            <h2 class="text-2xl font-bold text-center mb-6">ติดตามสถานะโอนเงิน</h2>
+            <h3 id="display-mtcn" class="text-xl text-center mb-6"></h3>
+
+            <div class="space-y-10 text-2xl">
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-2xl">Transaction generate by sender</p>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-2xl">Money amount 3,000.00 HKD has been approve by western union system</p>
+                </div>
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 text-yellow-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <p class="text-2xl">Deposited in destination account</p>
+                </div>
+                <div class="flex items-center text-gray-400">
+                    <div class="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center mr-3"></div>
+                    <p class="text-2xl">Complete</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tab1Btn = document.getElementById('tab1-btn');
+        const tab2Btn = document.getElementById('tab2-btn');
+        const tab1Content = document.getElementById('tab1-content');
+        const tab2Content = document.getElementById('tab2-content');
+        const mtcnInputs = document.querySelectorAll('.mtcn-input');
+        const trackMtcnBtn = document.getElementById('track-mtcn-btn');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const statusDisplay = document.getElementById('status-display');
+        const displayMtcn = document.getElementById('display-mtcn');
+
+        // Initial tab state
+        tab1Btn.classList.add('border-blue-500', 'text-blue-500');
+
+        tab1Btn.addEventListener('click', () => {
+            tab1Content.classList.remove('hidden');
+            tab2Content.classList.add('hidden');
+            tab1Btn.classList.add('border-blue-500', 'text-blue-500');
+            tab2Btn.classList.remove('border-blue-500', 'text-blue-500');
+        });
+
+        tab2Btn.addEventListener('click', () => {
+            tab2Content.classList.remove('hidden');
+            tab1Content.classList.add('hidden');
+            tab2Btn.classList.add('border-blue-500', 'text-blue-500');
+            tab1Btn.classList.remove('border-blue-500', 'text-blue-500');
+        });
+
+        // MTCN input focus logic
+        mtcnInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                // Clear placeholder 'X' if user types
+                if (e.target.value !== '' && e.target.value !== 'X') {
+                    e.target.classList.remove('text-gray-400');
+                } else if (e.target.value === '') {
+                    e.target.value = 'X';
+                    e.target.classList.add('text-gray-400');
+                }
+
+                if (e.target.value.length === e.target.maxLength) {
+                    if (index < mtcnInputs.length - 1) {
+                        // Skip the '-' separator inputs if they exist in the original query (not directly handled here, assuming continuous inputs)
+                        let nextInputIndex = index + 1;
+                        // Find the next actual number input, skipping the '-' spans
+                        while (nextInputIndex < mtcnInputs.length && mtcnInputs[nextInputIndex].type !== 'text') {
+                            nextInputIndex++;
+                        }
+                        if (nextInputIndex < mtcnInputs.length) {
+                            mtcnInputs[nextInputIndex].focus();
+                            mtcnInputs[nextInputIndex].select(); // Select the 'X'
+                        }
+                    }
+                }
+            });
+
+            input.addEventListener('focus', (e) => {
+                if (e.target.value === 'X') {
+                    e.target.value = '';
+                    e.target.classList.remove('text-gray-400');
+                }
+            });
+
+            input.addEventListener('blur', (e) => {
+                if (e.target.value === '') {
+                    e.target.value = 'X';
+                    e.target.classList.add('text-gray-400');
+                }
+            });
+        });
+
+        // Track MTCN button functionality
+        trackMtcnBtn.addEventListener('click', () => {
+            tab1Content.classList.add('hidden');
+            tab2Content.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+            statusDisplay.classList.add('hidden');
+
+            setTimeout(() => {
+                loadingSpinner.classList.add('hidden');
+                statusDisplay.classList.remove('hidden');
+
+                let mtcn = "";
+                mtcnInputs.forEach(input => {
+                    if (input.value !== 'X') {
+                        mtcn += input.value;
+                    } else {
+                        mtcn += 'X'; // Keep 'X' if not filled
+                    }
+                });
+                // Format MTCN for display
+                const formattedMtcn = `${mtcn.substring(0, 3)}-${mtcn.substring(3, 6)}-${mtcn.substring(6, 10)}`;
+                displayMtcn.textContent = `MTCN: ${formattedMtcn}`;
+
+            }, 5000); // 5 seconds loading
+        });
+    </script>
+    <style>
+        /* Simple loading spinner animation */
+        .loader {
+            border-top-color: #3498db;
+            -webkit-animation: spin 1.5s linear infinite;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</body>
+</html>
